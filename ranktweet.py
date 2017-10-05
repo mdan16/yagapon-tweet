@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # coding: UTF-8
 import re
 import urllib.request
@@ -40,7 +41,6 @@ for i in range(3):
     #output line
     output += "\n" + line
 
-print(output)
 # tweet
 CONSUMER_KEY = ""
 CONSUMER_SECRET = ""
