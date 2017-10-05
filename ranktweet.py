@@ -41,6 +41,10 @@ for i in range(3):
     #output line
     output += "\n" + line
 
+## add url
+output += "\n\n" + "やがぽんに投票しよう！！"
+output += "\n" + url
+
 # tweet
 CONSUMER_KEY = ""
 CONSUMER_SECRET = ""
