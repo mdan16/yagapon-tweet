@@ -5,6 +5,7 @@ import urllib.request
 from bs4 import BeautifulSoup
 import tweepy
 from datetime import datetime
+import random
 
 # open url
 url = "http://c.student.mynavi.jp/cpf/stu_007/photos/detail/1"
@@ -24,7 +25,7 @@ r_name = re.compile("<a.+</a>")
 
 # get datetime
 now = datetime.now().strftime("%m/%d %H:%M")
-output = "やがぽんの順位(" + now + ")"
+output = "【マスコット総選挙】やがぽんの順位(" + now + ")"
 for i in range(3):
     #extract name and vote
     name = rank_texts[i].text
@@ -42,7 +43,12 @@ for i in range(3):
     output += "\n" + line
 
 ## add url
-output += "\n\n" + "やがぽんに投票しよう！！"
+string_list = [
+    "やがぽんを応援しよう！！",
+    "矢上の幼女やがぽんを応援しよう！！",
+    "我らの姫やがぽんを応援しよう！！"
+]
+output += "\n\n" + string_list[random.randint(0, len(string_list)-1)]
 output += "\n" + url
 
 # tweet
