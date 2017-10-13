@@ -23,10 +23,16 @@ rank_texts = soup.select("div.rank_txt > a")
 side_nums = soup.find_all("div", attrs={"class": "side_num"})
 r_name = re.compile("<a.+</a>")
 
+# get yagapon's rank
+for i in range(len(rank_texts)):
+    if rank_texts[i].text == "やがぽん":
+        yagapon_rank = i
+        break
+
 # get datetime
 now = datetime.now().strftime("%m/%d %H:%M")
 output = "【マスコット総選挙】やがぽんの順位(" + now + ")"
-for i in range(3):
+for i in range(yagapon_rank-1, yagapon_rank+2):
     #extract name and vote
     name = rank_texts[i].text
     vote = r_vote.search(side_nums[i].text).group(0)
