@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# coding: UTF-8
+# coding: utf-8
 import re
 import urllib.request
 from bs4 import BeautifulSoup
@@ -32,7 +32,7 @@ for i in range(len(rank_texts)):
 # get datetime
 now = datetime.now().strftime("%m/%d %H:%M")
 output = "【マスコット総選挙】やがぽんの順位(" + now + ")"
-for i in range(yagapon_rank-1, yagapon_rank+2):
+for i in range(min(yagapon_rank-1, len(rank_texts)-3), min(yagapon_rank+2, len(rank_texts))):
     #extract name and vote
     name = rank_texts[i].text
     vote = r_vote.search(side_nums[i].text).group(0)
